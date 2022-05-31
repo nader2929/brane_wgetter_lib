@@ -1,0 +1,29 @@
+name: wgetter
+version: 1.0.5
+kind: ecu
+
+entrypoint:
+  kind: task
+  exec: wgetter.sh
+
+dependencies:
+  - wget
+
+install:
+  # - apk add --no-cache wget
+
+files:
+  - wgetter.sh
+
+
+actions:
+  wgetData:
+    command:
+        args:
+          - wgetData
+    input:
+      - name: url
+        type: string
+    output:
+      - name: resultOutput
+        type: string
